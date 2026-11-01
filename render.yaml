@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: pinhire-webhook
+    runtime: python
+    plan: free
+    buildCommand: python -m pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: PINHIRE_SEED_TOKEN
+        sync: false
